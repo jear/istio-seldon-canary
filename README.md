@@ -1,15 +1,5 @@
-# istio-seldon-canary
-    # https://docs.seldon.io/projects/seldon-core/en/latest/examples/istio_canary.html
+# Canary Roll Out using Seldon-Core and Istio
 
-    kubectl create -f ../../../notebooks/resources/seldon-gateway.yaml
-    k get gateways.networking.istio.io 
-    NAME             AGE
-    seldon-gateway   2m9s
+This folder provides resources to illustrate how to do a canary roll out of one MNIST model to another using the canary pattern where a small amount of traffic is sent to the new model to validate it before sending all traffic to the new model.
 
-    kubectl label namespace seldon istio-injection=enabled
-    
-    INGRESS_HOST=kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
-    INGRESS_PORT=kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].port}'
-    ISTIO_GATEWAY=INGRESS_HOST[0]+":"+INGRESS_PORT[0]
-    
-    
+There is a [Jupyter Notebook](canary.ipynb) that provides a step by step demo.
