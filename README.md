@@ -4,6 +4,11 @@ This folder provides resources to illustrate how to do a canary roll out of one 
 
 There is a [Jupyter Notebook](canary.ipynb) that provides a step by step demo.
 
+    conda create -n canary python=3.6
+    conda activate canary
+    pip install seldon-core>=0.2.6.1
+    jupyter notebook  --no-browser  --allow-root --ip `hostname -i`   --port 8890
+    
     kubectl create namespace seldon
     kubectl config set-context $(kubectl config current-context) --namespace=seldon
 
