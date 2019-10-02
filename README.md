@@ -29,6 +29,9 @@ There is a [Jupyter Notebook](canary.ipynb) that provides a step by step demo.
     kubectl apply -f mnist_v1.json
     kubectl rollout status deploy/mnist-deployment-sk-mnist-predictor-73d7608
 
+    #kubectl label nodes $(kubectl get nodes -o jsonpath='{.items[0].metadata.name}') role=locust
+    kubectl label nodes node4  role=locust
+    
     helm install ../../../helm-charts/seldon-core-loadtesting --name loadtest  \
     --namespace seldon \
     --repo https://storage.googleapis.com/seldon-charts \
