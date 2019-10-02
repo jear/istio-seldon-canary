@@ -12,6 +12,8 @@ There is a [Jupyter Notebook](canary.ipynb) that provides a step by step demo.
     kubectl create namespace seldon
     kubectl config set-context $(kubectl config current-context) --namespace=seldon
 
+    cd workspace/seldon-core/examples/istio/canary_update/    
+
     kubectl create -f ../../../notebooks/resources/seldon-gateway.yaml
     k get gateways.networking.istio.io 
     k describe gateways.networking.istio.io
