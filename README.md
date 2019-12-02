@@ -26,7 +26,7 @@ There is a [Jupyter Notebook](canary.ipynb) that provides a step by step demo.
     echo $ISTIO_GATEWAY
 
     helm install seldon-core-operator --name seldon-core --repo https://storage.googleapis.com/seldon-charts --set usageMetrics.enabled=true --namespace seldon-system --set istio.enabled=true --set istio.gateway=istio-ingressgateway
-    kubectl rollout status statefulset.apps/seldon-operator-controller-manager -n seldon-system
+    kubectl rollout status deploy/seldon-controller-manager -n seldon-system
 
     kubectl apply -f mnist_v1.json
     kubectl rollout status deploy/mnist-deployment-sk-mnist-predictor-73d7608
